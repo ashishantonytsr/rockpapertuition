@@ -70,22 +70,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // VERSION 3 JS UPDATES
     // ===============================================
 
-    // 5. Card Expansion Logic (For Mobile Click)
-    // This function is called by the onclick="" attribute in HTML
+    // 5. Card Expansion Logic (Fixed)
     function toggleCard(element) {
-        // Check if the screen is small (mobile/tablet)
-        if (window.innerWidth <= 768) {
-            // Toggle the class 'expanded'
-            element.classList.toggle('expanded');
-            
-            // Optional: Close other cards to keep UI clean
-            const allCards = document.querySelectorAll('.realm-card');
-            allCards.forEach(card => {
-                if (card !== element) {
-                    card.classList.remove('expanded');
-                }
-            });
-        }
+        // We removed the window.innerWidth check.
+        // Now, clicking works on Desktop (as a toggle) AND Mobile.
+        
+        // Toggle the class 'expanded' on the clicked card
+        element.classList.toggle('expanded');
+
+        // Optional: Close other cards to keep UI clean
+        const allCards = document.querySelectorAll('.realm-card');
+        allCards.forEach(card => {
+            if (card !== element) {
+                card.classList.remove('expanded');
+            }
+        });
     }
 
     // 6. Enhanced Parallax (Floating Loot)

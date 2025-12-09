@@ -529,66 +529,133 @@ footer {
 }
 .play-icon { font-size: 3rem; display: block; margin-bottom: 10px; }
 
-/* 4. Journey: Expandable Cards */
+/* ========================================= */
+/* VERSION 3.1 UPDATE: HORIZONTAL DRAWER     */
+/* ========================================= */
+
+/* Base Card Styling */
 .realm-card {
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    overflow: hidden;
-    max-height: 180px; /* Default collapsed height */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative; /* Anchor for absolute positioning */
+    z-index: 1; /* Default z-index */
+    background: var(--bg-card);
 }
-.realm-card .card-header-view { position: relative; z-index: 2; }
+
+.realm-card .card-content p {
+    margin-bottom: 25px; /* Added space as requested */
+    color: var(--text-gray);
+}
+
 .expand-hint {
     position: absolute;
-    top: 0; right: 0;
+    top: 20px; right: 20px;
     color: var(--text-gray);
     font-size: 1.2rem;
     transition: transform 0.3s;
 }
 
-/* Hover effect for Desktop */
+/* --- DESKTOP: Horizontal Drawer Effect --- */
 @media (min-width: 769px) {
-    .realm-card:hover {
-        max-height: 400px; /* Expanded height */
-        background: rgba(30, 41, 59, 0.95);
-        border-color: var(--primary);
-        z-index: 10;
+    /* Make syllabus floating and hidden by default */
+    .syllabus-path {
+        position: absolute;
+        top: 0;
+        height: 100%; /* Match card height */
+        width: 220px; /* Fixed width for the drawer */
+        background: rgba(15, 23, 42, 0.95); /* Dark background */
+        border: 1px solid var(--primary);
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease-in-out;
+        z-index: -1; /* Hide behind the main card initially */
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
-    .realm-card:hover .expand-hint { transform: rotate(180deg); }
-    .realm-card:hover .syllabus-path { opacity: 1; transform: translateY(0); }
+
+    /* Left Card: Drawer slides to the LEFT */
+    .realm-card.left .syllabus-path {
+        right: 20px; /* Start tucked in */
+        border-radius: 20px 0 0 20px;
+    }
+    .realm-card.left:hover .syllabus-path,
+    .realm-card.left.expanded .syllabus-path {
+        right: 100%; /* Slide out to the left */
+        opacity: 1;
+        visibility: visible;
+        margin-right: 10px; /* Gap */
+    }
+
+    /* Right Card: Drawer slides to the RIGHT */
+    .realm-card.right .syllabus-path {
+        left: 20px; /* Start tucked in */
+        border-radius: 0 20px 20px 0;
+    }
+    .realm-card.right:hover .syllabus-path,
+    .realm-card.right.expanded .syllabus-path {
+        left: 100%; /* Slide out to the right */
+        opacity: 1;
+        visibility: visible;
+        margin-left: 10px; /* Gap */
+    }
+
+    /* Hover State for Main Card */
+    .realm-card:hover {
+        z-index: 10; /* Bring to front */
+        border-color: var(--primary);
+        transform: scale(1.02); /* Slight pop */
+    }
 }
 
-/* Class toggle for Mobile (handled by JS) */
-.realm-card.expanded {
-    max-height: 500px;
-    background: rgba(30, 41, 59, 1);
-    border-color: var(--primary);
-}
-.realm-card.expanded .expand-hint { transform: rotate(180deg); }
-.realm-card.expanded .syllabus-path { opacity: 1; transform: translateY(0); }
+/* --- MOBILE: Vertical Accordion Effect --- */
+@media (max-width: 768px) {
+    .realm-card {
+        overflow: hidden;
+        max-height: 180px; /* Default collapsed height */
+    }
+    
+    .syllabus-path {
+        display: block;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px dashed rgba(255,255,255,0.1);
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease-out;
+    }
 
-/* The Syllabus Tree Styles */
-.syllabus-path {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px dashed rgba(255,255,255,0.1);
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: all 0.3s ease-out 0.1s; /* Delay to wait for expansion */
+    /* Expanded State (Triggered by JS click) */
+    .realm-card.expanded {
+        max-height: 500px; /* Allow growth */
+        background: #1e293b;
+        border-color: var(--primary);
+    }
+    .realm-card.expanded .expand-hint { transform: rotate(180deg); }
+    .realm-card.expanded .syllabus-path {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
+/* Common Syllabus Styling */
 .node {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    font-size: 0.95rem;
-    color: var(--text-gray);
+    font-size: 0.9rem;
+    color: #fff;
 }
 .node span {
-    background: rgba(255,255,255,0.1);
+    background: rgba(34, 197, 94, 0.2);
     color: var(--primary);
-    padding: 2px 6px;
-    border-radius: 4px;
+    padding: 2px 8px;
+    border-radius: 5px;
     margin-right: 10px;
-    font-size: 0.8rem;
     font-weight: 700;
+    font-size: 0.8rem;
 }
 
 /* 5. School Section (Institutional Blue) */
