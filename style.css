@@ -473,3 +473,208 @@ footer {
     .pricing-card.popular:hover { transform: scale(1.02); }
     .inventory-grid { grid-template-columns: 1fr; }
 }
+
+/* ========================================= */
+/* VERSION 3 UPDATES (Parallax, Schools, Journey) */
+/* ========================================= */
+
+/* 1. UI Polish: Button Spacing */
+.btn-mega, .btn-primary-small, .btn-secondary {
+    margin-bottom: 2rem; /* Adds breathing room */
+}
+.cta-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* 2. Hero: Parallax Icons */
+.parallax-layer {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; /* Let clicks pass through */
+    z-index: 1;
+}
+.floating-icon {
+    position: absolute;
+    font-size: 2.5rem;
+    opacity: 0.3;
+    animation: float 6s ease-in-out infinite;
+}
+.icon-1 { top: 15%; left: 10%; animation-duration: 7s; } /* Coin */
+.icon-2 { top: 25%; right: 15%; animation-duration: 5s; } /* Beaker */
+.icon-3 { bottom: 20%; left: 20%; animation-duration: 8s; font-family: serif; } /* Pi */
+.icon-4 { bottom: 30%; right: 10%; animation-duration: 6s; } /* Shield */
+
+/* 3. Hero: Gameplay GIF Placeholder */
+.gameplay-card {
+    min-width: 320px;
+    min-height: 200px;
+    padding: 10px;
+}
+.game-preview {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gif-placeholder {
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+}
+.play-icon { font-size: 3rem; display: block; margin-bottom: 10px; }
+
+/* 4. Journey: Expandable Cards */
+.realm-card {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    max-height: 180px; /* Default collapsed height */
+}
+.realm-card .card-header-view { position: relative; z-index: 2; }
+.expand-hint {
+    position: absolute;
+    top: 0; right: 0;
+    color: var(--text-gray);
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+}
+
+/* Hover effect for Desktop */
+@media (min-width: 769px) {
+    .realm-card:hover {
+        max-height: 400px; /* Expanded height */
+        background: rgba(30, 41, 59, 0.95);
+        border-color: var(--primary);
+        z-index: 10;
+    }
+    .realm-card:hover .expand-hint { transform: rotate(180deg); }
+    .realm-card:hover .syllabus-path { opacity: 1; transform: translateY(0); }
+}
+
+/* Class toggle for Mobile (handled by JS) */
+.realm-card.expanded {
+    max-height: 500px;
+    background: rgba(30, 41, 59, 1);
+    border-color: var(--primary);
+}
+.realm-card.expanded .expand-hint { transform: rotate(180deg); }
+.realm-card.expanded .syllabus-path { opacity: 1; transform: translateY(0); }
+
+/* The Syllabus Tree Styles */
+.syllabus-path {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(255,255,255,0.1);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease-out 0.1s; /* Delay to wait for expansion */
+}
+.node {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: var(--text-gray);
+}
+.node span {
+    background: rgba(255,255,255,0.1);
+    color: var(--primary);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* 5. School Section (Institutional Blue) */
+:root {
+    --school-blue: #3b82f6;
+    --school-dark: #020617;
+}
+.schools-section {
+    padding: 100px 5%;
+    background: var(--school-dark);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.school-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+.school-content { flex: 1; min-width: 300px; }
+.school-badge {
+    color: var(--school-blue);
+    background: rgba(59, 130, 246, 0.1);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+.school-features { list-style: none; margin: 30px 0; }
+.school-features li { margin-bottom: 10px; font-weight: 600; color: #cbd5e1; }
+.btn-school {
+    padding: 15px 30px;
+    background: var(--school-blue);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #1d4ed8; /* Darker blue */
+    transition: transform 0.2s;
+}
+.btn-school:hover { background: #2563eb; }
+
+.school-visual { flex: 1; display: flex; justify-content: center; }
+.dashboard-mockup {
+    background: #1e293b;
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+    border-radius: 15px;
+    border: 2px solid rgba(255,255,255,0.05);
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.dash-header { height: 10px; width: 60%; background: rgba(255,255,255,0.1); border-radius: 10px; position: absolute; top: 20px; left: 20px; }
+.dash-graph { display: flex; align-items: flex-end; gap: 15px; height: 120px; margin-bottom: 20px; }
+.bar { flex: 1; background: var(--school-blue); border-radius: 5px 5px 0 0; opacity: 0.7; }
+.bar:nth-child(even) { opacity: 0.4; }
+.dash-label { font-size: 0.9rem; font-weight: 700; color: #fff; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; }
+
+/* 6. Safety Strip */
+.safety-strip {
+    background: #000;
+    padding: 15px 5%;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+}
+.safety-logos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    opacity: 0.5;
+}
+.safety-badge { font-size: 0.85rem; font-weight: 600; color: #fff; letter-spacing: 0.5px; }
+
+/* Mobile Adjust for Schools */
+@media (max-width: 768px) {
+    .school-container { flex-direction: column; }
+    .school-visual { width: 100%; }
+}

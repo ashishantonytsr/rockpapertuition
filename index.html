@@ -18,9 +18,16 @@
         </div>
     </nav>
 
-    <section class="hero">
+<section class="hero">
+        <div class="parallax-layer">
+            <div class="floating-icon icon-1">🪙</div>
+            <div class="floating-icon icon-2">🧪</div>
+            <div class="floating-icon icon-3">π</div>
+            <div class="floating-icon icon-4">🛡️</div>
+        </div>
+
         <div class="hero-content">
-            <span class="badge">🚀 v2.0 Now Live</span>
+            <span class="badge">🚀 v3.0 Now Live</span>
             <h1>Play Like a Champion. <br>Learn Like a <span class="gradient-text">Scholar.</span></h1>
             <p>The curriculum-aligned RPG where solving math defeats dragons and grammar unlocks treasure.</p>
             <div class="cta-group">
@@ -46,46 +53,74 @@
         <div class="hero-visual">
             <div class="planet planet-1"></div>
             <div class="planet planet-2"></div>
-            <div class="floating-card">
-                <div class="avatar">🦁</div>
-                <div class="dialogue">Math Attack! <br> <strong>24 + 12 = ?</strong></div>
+            <div class="floating-card gameplay-card">
+                <div class="game-preview">
+                    <div class="gif-placeholder">
+                        <span class="play-icon">▶</span>
+                        <span class="caption">Math Battle In-Progress...</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="journey" class="journey-section">
+<section id="journey" class="journey-section">
         <div class="section-header">
             <h2>Choose Your Realm</h2>
-            <p>Intuitive learning paths disguised as planetary conquests.</p>
+            <p>Click (or hover) to reveal the syllabus path.</p>
         </div>
 
         <div class="path-container">
             <div class="path-line"></div>
 
-            <div class="realm-card left reveal">
-                <div class="card-icon" style="background: #f97316;">🔥</div>
-                <div class="card-content">
-                    <h3>The Math Stronghold</h3>
-                    <p>Fire breath requires calculation. Solve geometry puzzles to shield your avatar from the Dragon.</p>
-                    <span class="tag">Critical Thinking</span>
+            <div class="realm-card left reveal" onclick="toggleCard(this)">
+                <div class="card-header-view">
+                    <div class="card-icon" style="background: #f97316;">🔥</div>
+                    <div class="card-content">
+                        <h3>The Math Stronghold</h3>
+                        <p>Solve geometry puzzles to shield your avatar.</p>
+                        <span class="tag">Critical Thinking</span>
+                    </div>
+                    <div class="expand-hint">▼</div>
+                    </div>
+                    <div class="syllabus-path">
+                        <div class="node"><span>01</span> Arithmetic Defense</div>
+                        <div class="node"><span>02</span> Geometry Gates</div>
+                        <div class="node"><span>03</span> Algebra Boss Fight</div>
                 </div>
             </div>
 
-            <div class="realm-card right reveal">
-                <div class="card-icon" style="background: #22c55e;">🌴</div>
-                <div class="card-content">
-                    <h3>Grammar Archipelago</h3>
-                    <p>Unlock ancient chests by mastering syntax. Bad grammar keeps the loot locked tight.</p>
-                    <span class="tag">Language Arts</span>
-                </div>
+            <div class="realm-card right reveal" onclick="toggleCard(this)">
+                <div class="card-header-view">
+                    <div class="card-icon" style="background: #22c55e;">🌴</div>
+                    <div class="card-content">
+                        <h3>Grammar Archipelago</h3>
+                        <p>Unlock ancient chests by mastering syntax.</p>
+                        <span class="tag">Language Arts</span>
+                        </div>
+                    <div class="expand-hint">▼</div>
+                    </div>
+                    <div class="syllabus-path">
+                        <div class="node"><span>01</span> Noun Islands</div>
+                        <div class="node"><span>02</span> Verb Volcanoes</div>
+                        <div class="node"><span>03</span> The Syntax Ruins</div>
+                    </div>
             </div>
 
-            <div class="realm-card left reveal">
-                <div class="card-icon" style="background: #8b5cf6;">🧪</div>
-                <div class="card-content">
-                    <h3>The Science Lab</h3>
-                    <p>Gravity is your toy. Use real physics simulations to modify your game world and jump higher.</p>
-                    <span class="tag">STEM Physics</span>
+            <div class="realm-card left reveal" onclick="toggleCard(this)">
+                <div class="card-header-view">
+                    <div class="card-icon" style="background: #8b5cf6;">🧪</div>
+                    <div class="card-content">
+                        <h3>The Science Lab</h3>
+                        <p>Use real physics simulations to modify your world.</p>
+                        <span class="tag">STEM Physics</span>
+                    </div>
+                    <div class="expand-hint">▼</div>
+                    </div>
+                    <div class="syllabus-path">
+                        <div class="node"><span>01</span> Gravity Sandbox</div>
+                        <div class="node"><span>02</span> Circuit Builder</div>
+                        <div class="node"><span>03</span> Chemical Reactions</div>
                 </div>
             </div>
         </div>
@@ -113,202 +148,237 @@
         </div>
     </section>
 
+    <section class="schools-section">
+        <div class="school-container">
+            <div class="school-content">
+                <span class="school-badge">For Educators</span>
+                <h2>Bring the Adventure to Your Classroom</h2>
+                <p>Sync with your State Board syllabus and track every student's progress in real-time.</p>
+                <ul class="school-features">
+                    <li>✓ Bulk Licenses for Grades 1-8</li>
+                    <li>✓ Teacher Admin Dashboard</li>
+                    <li>✓ Custom Syllabus Mapping</li>
+                </ul>
+                <button class="btn-school">Request School Demo</button>
+            </div>
+            <div class="school-visual">
+                <div class="dashboard-mockup">
+                    <div class="dash-header"></div>
+                    <div class="dash-graph">
+                        <div class="bar" style="height: 40%"></div>
+                        <div class="bar" style="height: 70%"></div>
+                        <div class="bar" style="height: 55%"></div>
+                        <div class="bar" style="height: 90%"></div>
+                    </div>
+                    <div class="dash-label">Class Performance: <span style="color:#22c55e">+12%</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 <section class="inventory-section">
-    <div class="section-header">
-        <h2>Equip Your Learning Toolkit</h2>
-        <p>Tools designed to keep kids safe and parents informed.</p>
-    </div>
-    <div class="inventory-grid">
-        <div class="inventory-card reveal">
-            <div class="item-icon">🛡️</div>
-            <h4>The Safety Shield</h4>
-            <p>Kid-safe environment. No ads, no external chat, no data tracking.</p>
+        <div class="section-header">
+            <h2>Equip Your Learning Toolkit</h2>
+            <p>Tools designed to keep kids safe and parents informed.</p>
         </div>
-        <div class="inventory-card reveal">
-            <div class="item-icon">🗺️</div>
-            <h4>The Parent Map</h4>
-            <p>Real-time dashboard to track exactly which concepts your child has mastered.</p>
-        </div>
-        <div class="inventory-card reveal">
-            <div class="item-icon">⏳</div>
-            <h4>Focus Timer</h4>
-            <p>Micro-learning sessions (15 mins) prevent burnout and screen fatigue.</p>
-        </div>
-        <div class="inventory-card reveal">
-            <div class="item-icon">🏆</div>
-            <h4>The Trophy Room</h4>
-            <p>Digital certificates and badges that can be printed for real-world motivation.</p>
-        </div>
-    </div>
-</section>
-
-<section class="pricing-section">
-    <div class="section-header">
-        <h2>Choose Your Guild</h2>
-        <p>Flexible plans for every type of explorer.</p>
-    </div>
-    <div class="pricing-container">
-        <div class="pricing-card reveal">
-            <div class="card-header">
-                <h3>Novice</h3>
-                <div class="price">Free</div>
-                <p>For the curious explorer</p>
+        <div class="inventory-grid">
+            <div class="inventory-card reveal">
+                <div class="item-icon">🛡️</div>
+                <h4>The Safety Shield</h4>
+                <p>Kid-safe environment. No ads, no external chat, no data tracking.</p>
             </div>
-            <ul class="features-list">
-                <li>✓ Access to World 1 (Math)</li>
-                <li>✓ 3 Mini-games daily</li>
-                <li>✓ Standard Avatar</li>
-            </ul>
-            <button class="btn-secondary full-width">Start Free</button>
-        </div>
-
-        <div class="pricing-card popular reveal">
-            <div class="ribbon">Best Value</div>
-            <div class="card-header">
-                <h3>Legend</h3>
-                <div class="price">₹5999<span class="period">/yr</span></div>
-                <p>For the true scholar</p>
+            <div class="inventory-card reveal">
+                <div class="item-icon">🗺️</div>
+                <h4>The Parent Map</h4>
+                <p>Real-time dashboard to track exactly which concepts your child has mastered.</p>
             </div>
-            <ul class="features-list">
-                <li>✓ <strong>All Worlds Unlocked</strong></li>
-                <li>✓ Unlimited Playtime</li>
-                <li>✓ Offline Mode</li>
-                <li>✓ Printable Worksheets</li>
-                <li>✓ Priority Support</li>
-            </ul>
-            <button class="btn-primary-small full-width">Join Guild</button>
-        </div>
-
-        <div class="pricing-card reveal">
-            <div class="card-header">
-                <h3>Hero</h3>
-                <div class="price">₹599<span class="period">/mo</span></div>
-                <p>For the daily player</p>
+            <div class="inventory-card reveal">
+                <div class="item-icon">⏳</div>
+                <h4>Focus Timer</h4>
+                <p>Micro-learning sessions (15 mins) prevent burnout and screen fatigue.</p>
             </div>
-            <ul class="features-list">
-                <li>✓ Access to All Worlds</li>
-                <li>✓ Unlimited Playtime</li>
-                <li>✓ Custom Avatar Gear</li>
-            </ul>
-            <button class="btn-secondary full-width">Select Plan</button>
-        </div>
-    </div>
-</section>
-
-<section class="reviews-section">
-    <div class="section-header">
-        <h2>Hall of Fame</h2>
-        <p>Stats from our top players and their parents.</p>
-    </div>
-    <div class="reviews-scroller">
-        <div class="trading-card reveal">
-            <div class="card-top">
-                <span class="role">Parent</span>
-                <span class="rating">★★★★★</span>
+            <div class="inventory-card reveal">
+                <div class="item-icon">🏆</div>
+                <h4>The Trophy Room</h4>
+                <p>Digital certificates and badges that can be printed for real-world motivation.</p>
             </div>
-            <div class="card-stats">
-                <div class="stat-row">
-                    <span>Confidence</span>
-                    <div class="bar">
-                        <div class="fill" style="width: 100%"></div>
-                    </div>
+        </div>
+        </section>
+
+    <section class="pricing-section">
+        <div class="section-header">
+            <h2>Choose Your Guild</h2>
+            <p>Flexible plans for every type of explorer.</p>
+        </div>
+        <div class="pricing-container">
+            <div class="pricing-card reveal">
+                <div class="card-header">
+                    <h3>Novice</h3>
+                    <div class="price">Free</div>
+                    <p>For the curious explorer</p>
                 </div>
-                <div class="stat-row">
-                    <span>Math Anxiety</span>
-                    <div class="bar">
-                        <div class="fill" style="width: 10%"></div>
-                    </div>
+                <ul class="features-list">
+                    <li>✓ Access to World 1 (Math)</li>
+                    <li>✓ 3 Mini-games daily</li>
+                    <li>✓ Standard Avatar</li>
+                </ul>
+                <button class="btn-secondary full-width">Start Free</button>
+            </div>
+
+            <div class="pricing-card popular reveal">
+                <div class="ribbon">Best Value</div>
+                <div class="card-header">
+                    <h3>Legend</h3>
+                    <div class="price">₹5999<span class="period">/yr</span></div>
+                    <p>For the true scholar</p>
                 </div>
+                <ul class="features-list">
+                    <li>✓ <strong>All Worlds Unlocked</strong></li>
+                    <li>✓ Unlimited Playtime</li>
+                    <li>✓ Offline Mode</li>
+                    <li>✓ Printable Worksheets</li>
+                    <li>✓ Priority Support</li>
+                </ul>
+                <button class="btn-primary-small full-width">Join Guild</button>
             </div>
-            <p class="quote">"My son thinks he's playing a video game. I know he's mastering algebra. Win-win."</p>
-            <div class="author">- Lakshmi, Mom of 7yo</div>
-        </div>
 
-        <div class="trading-card reveal">
-            <div class="card-top">
-                <span class="role">Teacher</span>
-                <span class="rating">★★★★★</span>
-            </div>
-            <div class="card-stats">
-                <div class="stat-row">
-                    <span>Engagement</span>
-                    <div class="bar">
-                        <div class="fill" style="width: 95%"></div>
-                    </div>
+            <div class="pricing-card reveal">
+                <div class="card-header">
+                    <h3>Hero</h3>
+                    <div class="price">₹599<span class="period">/mo</span></div>
+                    <p>For the daily player</p>
                 </div>
+                <ul class="features-list">
+                    <li>✓ Access to All Worlds</li>
+                    <li>✓ Unlimited Playtime</li>
+                    <li>✓ Custom Avatar Gear</li>
+                </ul>
+                <button class="btn-secondary full-width">Select Plan</button>
             </div>
-            <p class="quote">"I use this in my classroom for 'quiet time'. It reinforces concepts perfectly."</p>
-            <div class="author">- Sarah, Grade 3 Teacher</div>
-        </div>
-    </div>
-</section>
+            </div>
+            </section>
 
-<section class="faq-section">
-    <div class="section-header">
-        <h2>The Oracle's Answers</h2>
-    </div>
-    <div class="faq-container">
-        <div class="faq-item">
-            <button class="faq-question">Is this screen time bad for kids? <span class="icon">+</span></button>
-            <div class="faq-answer">
-                <p>Not all screens are equal. We replace passive watching (zoning out) with active problem solving.
-                    Plus, our built-in Focus Timer ensures they take breaks.</p>
-            </div>
+    <section class="reviews-section">
+        <div class="section-header">
+            <h2>Hall of Fame</h2>
+            <p>Stats from our top players and their parents.</p>
         </div>
-        <div class="faq-item">
-            <button class="faq-question">What age group is this for? <span class="icon">+</span></button>
-            <div class="faq-answer">
-                <p>Rock Paper Tuition is optimized for kids aged 5 to 12. The difficulty scales automatically based on
-                    the child's performance.</p>
-            </div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Can I use it on multiple devices? <span class="icon">+</span></button>
-            <div class="faq-answer">
-                <p>Yes! One subscription covers up to 3 devices (iPad, Android Tablet, or Desktop).</p>
-            </div>
-        </div>
-    </div>
-</section>
+        <div class="reviews-scroller">
+            <div class="trading-card reveal">
+                <div class="card-top">
+                    <span class="role">Parent</span>
+                    <span class="rating">★★★★★</span>
+                </div>
+                <div class="card-stats">
+                    <div class="stat-row">
+                        <span>Confidence</span>
+                        <div class="bar">
+                            <div class="fill" style="width: 100%"></div>
+                        </div>
+                        </div>
+                        <div class="stat-row">
+                            <span>Math Anxiety</span>
+                        <div class="bar">
+                            <div class="fill" style="width: 10%"></div>
+                        </div>
+                        </div>
+                        </div>
+                        <p class="quote">"My son thinks he's playing a video game. I know he's mastering algebra. Win-win."</p>
+                        <div class="author">- Lakshmi, Mom of 7yo</div>
+                        </div>
 
-<section class="download-section">
-    <div class="download-content">
-        <h2>Mission Control is Ready. <br>Are You?</h2>
-        <p>Download now and get the "Starter Pack" for free.</p>
-        <div class="store-buttons">
-            <button class="store-btn"> App Store</button>
-            <button class="store-btn">▶ Google Play</button>
-        </div>
-    </div>
-</section>
+            <div class="trading-card reveal">
+                <div class="card-top">
+                    <span class="role">Teacher</span>
+                    <span class="rating">★★★★★</span>
+                </div>
+                <div class="card-stats">
+                    <div class="stat-row">
+                        <span>Engagement</span>
+                        <div class="bar">
+                            <div class="fill" style="width: 95%"></div>
+                        </div>
+                        </div>
+                        </div>
+                        <p class="quote">"I use this in my classroom for 'quiet time'. It reinforces concepts perfectly."</p>
+                        <div class="author">- Sarah, Grade 3 Teacher</div>
+                        </div>
+                        </div>
+                        </section>
 
-<footer class="main-footer">
-    <div class="footer-grid">
-        <div class="footer-col">
-            <h4>Rock Paper <span class="highlight">Tuition</span></h4>
-            <p>Making scholars out of gamers since 2025.</p>
+    <section class="faq-section">
+        <div class="section-header">
+            <h2>The Oracle's Answers</h2>
         </div>
-        <div class="footer-col">
-            <h4>Company</h4>
-            <a href="#">About Us</a>
-            <a href="#">Careers</a>
-            <a href="#">Press Kit</a>
-        </div>
-        <div class="footer-col">
-            <h4>Support</h4>
-            <a href="#">Help Center</a>
-            <a href="#">Safety Center</a>
-            <a href="#">Contact Us</a>
-        </div>
-        <div class="footer-col">
-            <h4>Socials</h4>
-            <div class="social-icons">
-                <a href="#">🐦</a> <a href="#">📷</a> <a href="#">🎮</a>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">Is this screen time bad for kids? <span class="icon">+</span></button>
+                <div class="faq-answer">
+                    <p>Not all screens are equal. We replace passive watching (zoning out) with active problem solving. Plus, our built-in
+                        Focus Timer ensures they take breaks.</p>
+                    </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">What age group is this for? <span class="icon">+</span></button>
+                        <div class="faq-answer">
+                    <p>Rock Paper Tuition is optimized for kids aged 5 to 12. The difficulty scales automatically based on the child's
+                        performance.</p>
+                    </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Can I use it on multiple devices? <span class="icon">+</span></button>
+                        <div class="faq-answer">
+                            <p>Yes! One subscription covers up to 3 devices (iPad, Android Tablet, or Desktop).</p>
+                        </div>
+                    </div>
+                    </div>
+                    </section>
+
+    <section class="download-section">
+        <div class="download-content">
+            <h2>Mission Control is Ready. <br>Are You?</h2>
+            <p>Download now and get the "Starter Pack" for free.</p>
+            <div class="store-buttons">
+                <button class="store-btn"> App Store</button>
+                <button class="store-btn">▶ Google Play</button>
             </div>
         </div>
+    </section>
+
+    <div class="safety-strip">
+        <div class="safety-logos">
+            <span class="safety-badge">🔒 SSL Secure</span>
+            <span class="safety-badge">🛡️ COPPA Compliant</span>
+            <span class="safety-badge">✅ kidSAFE Certified</span>
+        </div>
     </div>
-    <div class="footer-bottom">
-        <p>© 2025 Rextech Studios. All Rights Reserved.</p>
+
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Rock Paper <span class="highlight">Tuition</span></h4>
+                <p>Making scholars out of gamers since 2025.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Press Kit</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="#">Help Center</a>
+                <a href="#">Safety Center</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="footer-col">
+                <h4>Socials</h4>
+                <div class="social-icons">
+                    <a href="#">🐦</a> <a href="#">📷</a> <a href="#">🎮</a> </div>
+                    </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>© 2025 Rextech Studios. All Rights Reserved.</p>
         </div>
     </footer>
     

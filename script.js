@@ -65,4 +65,41 @@ document.addEventListener('DOMContentLoaded', () => {
             item.classList.toggle('active');
         });
     });
+
+    // ===============================================
+    // VERSION 3 JS UPDATES
+    // ===============================================
+
+    // 5. Card Expansion Logic (For Mobile Click)
+    // This function is called by the onclick="" attribute in HTML
+    function toggleCard(element) {
+        // Check if the screen is small (mobile/tablet)
+        if (window.innerWidth <= 768) {
+            // Toggle the class 'expanded'
+            element.classList.toggle('expanded');
+            
+            // Optional: Close other cards to keep UI clean
+            const allCards = document.querySelectorAll('.realm-card');
+            allCards.forEach(card => {
+                if (card !== element) {
+                    card.classList.remove('expanded');
+                }
+            });
+        }
+    }
+
+    // 6. Enhanced Parallax (Floating Loot)
+    // We add the new icons to the existing mousemove listener
+    document.addEventListener('mousemove', (e) => {
+        const icons = document.querySelectorAll('.floating-icon');
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+
+        icons.forEach((icon, index) => {
+            // Different speeds for depth effect
+            const speed = (index + 1) * 15;
+            // Move in opposite direction to mouse for depth
+            icon.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+        });
+    });
 });
