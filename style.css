@@ -440,8 +440,9 @@ footer {
     background: radial-gradient(circle at center, #22c55e22, #0f172a);
 }
 .store-buttons { margin-top: 40px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+/* Updated Store Button Styling */
 .store-btn {
-    padding: 15px 30px;
+    padding: 12px 25px;
     background: #fff;
     color: #000;
     border: none;
@@ -449,9 +450,24 @@ footer {
     font-weight: 700;
     font-size: 1rem;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: all 0.2s;
+    
+    /* NEW: Flexbox for Icon Alignment */
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
 }
-.store-btn:hover { transform: translateY(-3px); }
+
+.store-btn:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.store-icon {
+    fill: #000; /* Ensure icon is black */
+    height: 20px;
+    width: 20px;
+}
 
 .main-footer { padding: 80px 5% 40px; background: #020617; border-top: 1px solid rgba(255,255,255,0.05); }
 .footer-grid {
@@ -465,7 +481,41 @@ footer {
 .footer-col a { display: block; color: var(--text-gray); margin-bottom: 15px; text-decoration: none; transition: color 0.2s; }
 .footer-col a:hover { color: var(--primary); }
 .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; color: rgba(255,255,255,0.3); font-size: 0.9rem; }
-.social-icons a { display: inline-block; font-size: 1.2rem; margin-right: 15px; }
+/* Social Icons Styling */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Remove underline */
+}
+
+.social-icons svg {
+    fill: #94a3b8; /* Default gray color */
+    transition: fill 0.3s ease;
+    height: 18px;
+    width: 18px;
+}
+
+/* Hover Effects */
+.social-icons a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+}
+
+.social-icons a:hover svg {
+    fill: #fff; /* Turn white on hover */
+}
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -810,21 +860,32 @@ footer {
     100% { transform: translateX(-50%); } /* Move half way (one set) */
 }
 
-/* 4. Curvy Path Line */
+/* 4. Creative Looping Path Line */
 .path-line { display: none; } /* Hide old straight line */
 .path-svg {
     position: absolute;
-    top: 0; left: 50%;
+    top: -50px; /* Start a bit higher */
+    left: 50%;
     transform: translateX(-50%);
-    height: 100%;
-    width: 200px;
-    z-index: 0;
+    height: calc(100% + 100px); /* Extend a bit longer */
+    width: 90%; /* Make it wide enough to loop behind cards */
+    max-width: 1000px; /* Cap width for very large screens */
+    z-index: 0; /* Ensure it stays BEHIND the cards */
     pointer-events: none;
+    /* Add a subtle glowing effect */
+    filter: drop-shadow(0 0 10px rgba(34, 197, 94, 0.5));
 }
-/* Mobile Fallback for Path */
+
+/* Mobile Fallback: Keep it simple on small screens */
 @media (max-width: 768px) {
+    .path-svg { 
+        width: 200px; /* Narrower on mobile */
+        opacity: 0.5;
+    }
+    /* Alternative: You could hide it and show the straight line again if it's too messy
     .path-svg { display: none; }
-    .path-line { display: block; left: 20px; transform: none; } /* Restore straight line */
+    .path-line { display: block; left: 20px; transform: none; } 
+    */
 }
 
 /* 5. Inventory Icons on Top */
@@ -854,3 +915,103 @@ footer {
     align-items: center;
 }
 .s-logo { border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 2px; }
+
+/* ========================================= */
+/* VERSION 3.3 UPDATES                       */
+/* ========================================= */
+
+/* FIXED: Holographic Engine Cards (Unified Background) */
+.bento-card {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    /* FIX: Use a single unified background instead of the masking trick */
+    background: linear-gradient(145deg, #1e293b, #0f172a); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 20px; /* Ensure radius is applied here */
+    
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+/* New Hover Effect: Glow comes from border and shadow now */
+.bento-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(34, 197, 94, 0.5); /* Green border glow */
+    box-shadow: 0 15px 40px rgba(34, 197, 94, 0.15); /* Green ambient glow */
+}
+
+/* Ensure content sits above the icon */
+.bento-content { 
+    position: relative; 
+    z-index: 2; 
+    max-width: 75%; 
+    padding: 10px; /* Add internal padding to content if needed */
+}
+
+/* Keep the Icon Logic (No changes needed here, but included for context) */
+.bento-icon {
+    font-size: 5rem;
+    opacity: 0.1;
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    transform: rotate(-15deg);
+    transition: all 0.4s ease;
+    filter: grayscale(100%);
+    z-index: 1;
+}
+
+.bento-card:hover .bento-icon {
+    opacity: 0.3;
+    transform: rotate(0deg) scale(1.1);
+    filter: grayscale(0%);
+    text-shadow: 0 0 20px var(--primary);
+}
+
+/* 2. Syllabus "View More" Link */
+.view-more-link {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: var(--primary);
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+.view-more-link:hover { border-bottom-color: var(--primary); }
+
+/* 3. Animated Stats (School Section) */
+.school-stats-row {
+    margin-top: 60px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #fff;
+    font-family: var(--font-heading);
+    background: linear-gradient(to bottom, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.stat-label {
+    color: var(--school-blue);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}

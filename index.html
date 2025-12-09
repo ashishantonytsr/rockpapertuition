@@ -75,9 +75,21 @@
         </div>
 
         <div class="path-container">
-            <svg class="path-svg" viewBox="0 0 100 800" preserveAspectRatio="none">
-                <path d="M 50 0 C 50 200, 50 200, 50 250 C 50 300, 90 350, 50 400 C 10 450, 50 500, 50 550 C 50 600, 50 600, 50 800" 
-                      stroke="rgba(255,255,255,0.1)" stroke-width="4" fill="none" stroke-dasharray="10, 10"/>
+            <svg class="path-svg" viewBox="0 0 400 1000" preserveAspectRatio="none">
+                <path d="M 200 0 
+                         C 200 100, 50 150, 50 300 
+                         C 50 450, 350 450, 350 600 
+                         C 350 750, 50 800, 50 900
+                         C 50 950, 200 950, 200 1000" 
+                      stroke="url(#path-gradient)" stroke-width="5" fill="none" stroke-dasharray="15, 10" stroke-linecap="round"/>
+                
+                <defs>
+                    <linearGradient id="path-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:var(--accent); stop-opacity:0.4" />
+                        <stop offset="50%" style="stop-color:var(--primary); stop-opacity:0.8" />
+                        <stop offset="100%" style="stop-color:var(--purple); stop-opacity:0.4" />
+                    </linearGradient>
+                </defs>
             </svg>
 
             <div class="realm-card left reveal" onclick="toggleCard(this)">
@@ -91,6 +103,7 @@
                     <div class="node"><span>01</span> Arithmetic Defense</div>
                     <div class="node"><span>02</span> Geometry Gates</div>
                     <div class="node"><span>03</span> Algebra Boss Fight</div>
+                    <div class="view-more-link">View Full Curriculum →</div>
                 </div>
             </div>
 
@@ -106,6 +119,7 @@
                      <div class="node"><span>01</span> Noun Islands</div>
                      <div class="node"><span>02</span> Verb Volcanoes</div>
                      <div class="node"><span>03</span> The Syntax Ruins</div>
+                     <div class="view-more-link">View Full Curriculum →</div>
                 </div>
             </div>
 
@@ -121,12 +135,13 @@
                      <div class="node"><span>01</span> Gravity Sandbox</div>
                      <div class="node"><span>02</span> Circuit Builder</div>
                      <div class="node"><span>03</span> Chemical Reactions</div>
+                     <div class="view-more-link">View Full Curriculum →</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="parents" class="engine-section">
+<section id="parents" class="engine-section">
         <div class="section-header">
             <h2>The "Hidden Learning" Engine</h2>
             <p>Why investors love the retention. Why parents love the results.</p>
@@ -134,21 +149,32 @@
 
         <div class="grid-container">
             <div class="bento-card reveal">
-                <h3>Guilt-Free Screen Time</h3>
-                <p>We turn "zoning out" into "leveling up". The only game parents don't set a timer for.</p>
+                <div class="bento-content">
+                    <h3>Guilt-Free Screen Time</h3>
+                    <p>We turn "zoning out" into "leveling up". The only game parents don't set a timer for.</p>
+                </div>
+                <div class="bento-icon">⏳</div>
             </div>
+            
             <div class="bento-card highlight-card reveal">
-                <h3>The Retention Loop</h3>
-                <p>Daily Streaks, XP, and Avatars create a sticky, habit-forming product with high LTV.</p>
+                <div class="bento-content">
+                    <h3>The Retention Loop</h3>
+                    <p>Daily Streaks, XP, and Avatars create a sticky, habit-forming product with high LTV.</p>
+                </div>
+                <div class="bento-icon">🔥</div>
             </div>
+            
             <div class="bento-card reveal">
-                <h3>Adaptive AI</h3>
-                <p>The game slows down when the child struggles and speeds up when they master a concept.</p>
+                <div class="bento-content">
+                    <h3>Adaptive AI</h3>
+                    <p>The game slows down when the child struggles and speeds up when they master a concept.</p>
+                </div>
+                <div class="bento-icon">🧠</div>
             </div>
         </div>
     </section>
 
-    <section class="schools-section">
+<section class="schools-section">
         <div class="school-container">
             <div class="school-content">
                 <span class="school-badge">For Educators</span>
@@ -161,6 +187,7 @@
                 </ul>
                 <button class="btn-school">Request School Demo</button>
             </div>
+            
             <div class="school-visual">
                 <div class="dashboard-mockup">
                     <div class="dash-header"></div>
@@ -173,11 +200,23 @@
                     <div class="dash-label">Class Performance: <span style="color:#22c55e">+12%</span></div>
                 </div>
                 <div class="school-logos">
-                    <span>Trusted by:</span>
-                    <span class="s-logo">Ryan Int.</span>
-                    <span class="s-logo">DPS</span>
-                    <span class="s-logo">Kendriya V.</span>
+                    <span>Trusted by:</span> <span class="s-logo">Ryan Int.</span> <span class="s-logo">DPS</span> <span class="s-logo">Kendriya V.</span>
                 </div>
+            </div>
+        </div>
+
+        <div class="school-stats-row" id="counter-section">
+            <div class="school-stat">
+                <div class="stat-number" data-target="50">0</div>
+                <div class="stat-label">Partner Schools</div>
+            </div>
+            <div class="school-stat">
+                <div class="stat-number" data-target="12000">0</div>
+                <div class="stat-label">Active Students</div>
+            </div>
+            <div class="school-stat">
+                <div class="stat-number" data-target="98">0</div>
+                <div class="stat-label">% Exam Pass Rate</div>
             </div>
         </div>
     </section>
@@ -352,8 +391,19 @@
             <h2>Mission Control is Ready. <br>Are You?</h2>
             <p>Download now and get the "Starter Pack" for free.</p>
             <div class="store-buttons">
-                <button class="store-btn"> App Store</button>
-                <button class="store-btn">▶ Google Play</button>
+                <button class="store-btn">
+                    <svg class="store-icon" viewBox="0 0 384 512" width="20">
+                        <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-11.4 69.5-34.3z"/>
+                    </svg>
+                    <span>App Store</span>
+                </button>
+
+                <button class="store-btn">
+                    <svg class="store-icon" viewBox="0 0 512 512" width="20">
+                        <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+                    </svg>
+                    <span>Google Play</span>
+                </button>
             </div>
         </div>
     </section>
@@ -387,7 +437,30 @@
             <div class="footer-col">
                 <h4>Socials</h4>
                 <div class="social-icons">
-                    <a href="#">🐦</a> <a href="#">📷</a> <a href="#">🎮</a> </div>
+                    <a href="#" aria-label="Twitter">
+                        <svg viewBox="0 0 512 512" width="20">
+                            <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM365.7 421.8h39.1L151.1 88h-42L365.7 421.8z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 512 512" width="20">
+                            <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 121.3 87.1 222.4 203 245.7V327.7h-63V256h63v-54.6c0-62.2 37-96.5 93.7-96.5 27.1 0 55.5 4.8 55.5 4.8v61h-31.3c-30.8 0-40.4 19.1-40.4 38.7V256h68.8l-11 71.7h-57.8V501.7C416.9 478.4 504 377.3 504 256z"/>
+                        </svg>
+                    </a>
+
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 448 512" width="20">
+                            <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                        </svg>
+                    </a>
+
+                    <a href="#" aria-label="LinkedIn">
+                        <svg viewBox="0 0 448 512" width="20">
+                            <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/>
+                        </svg>
+                    </a>
+                </div>
                     </div>
                     </div>
                     <div class="footer-bottom">

@@ -101,4 +101,43 @@ document.addEventListener('DOMContentLoaded', () => {
             icon.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
         });
     });
+
+    // ===============================================
+    // VERSION 3.3 JS UPDATES (Number Counter)
+    // ===============================================
+
+    // 7. Animated Number Counter
+    const statsSection = document.querySelector('#counter-section');
+    const statNumbers = document.querySelectorAll('.stat-number');
+    let started = false; // Flag to ensure animation runs only once
+
+    // Function to animate counts
+    function startCount(el) {
+        const target = parseInt(el.getAttribute('data-target'));
+        const duration = 2000; // Animation duration in ms
+        const step = target / (duration / 16); // 60fps
+        
+        let current = 0;
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                el.innerText = target + "+"; // Add plus sign at end
+                clearInterval(timer);
+            } else {
+                el.innerText = Math.ceil(current);
+            }
+        }, 16);
+    }
+
+    // Observer to trigger animation
+    const statsObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && !started) {
+            statNumbers.forEach(num => startCount(num));
+            started = true; // Stop it from running again
+        }
+    }, { threshold: 0.5 });
+
+    if (statsSection) {
+        statsObserver.observe(statsSection);
+    }
 });
