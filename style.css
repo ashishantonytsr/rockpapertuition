@@ -745,3 +745,112 @@ footer {
     .school-container { flex-direction: column; }
     .school-visual { width: 100%; }
 }
+
+/* ========================================= */
+/* VERSION 3.2 UPDATES                       */
+/* ========================================= */
+
+/* 1. New Floating Icons Positions */
+.icon-5 { top: 60%; left: 5%; animation-duration: 9s; }
+.icon-6 { top: 10%; left: 40%; animation-duration: 6s; }
+.icon-7 { bottom: 15%; right: 40%; animation-duration: 10s; }
+.icon-8 { top: 50%; right: 5%; animation-duration: 7s; }
+
+/* 2. The Battle Scene (Game Card Fix) */
+.game-scene {
+    width: 100%; height: 100%;
+    background: linear-gradient(to bottom, #1e293b, #0f172a);
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+}
+.battle-top { display: flex; justify-content: space-between; align-items: center; }
+.health-bar { width: 40%; height: 6px; background: #334155; border-radius: 3px; overflow: hidden; }
+.hp-fill { height: 100%; background: #22c55e; }
+.health-bar.enemy .hp-fill { background: #ef4444; }
+.vs { font-weight: 900; color: rgba(255,255,255,0.2); font-style: italic; }
+
+.battle-mid { display: flex; justify-content: space-between; align-items: flex-end; padding: 10px 0; }
+.char { font-size: 3rem; position: relative; animation: bounce 2s infinite; }
+.char.dragon { animation-delay: 1s; transform: scaleX(-1); /* Flip dragon */ }
+
+.battle-ui { background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px; text-align: center; }
+.question { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+.options { display: flex; gap: 10px; justify-content: center; }
+.opt { background: #334155; padding: 5px 10px; border-radius: 5px; font-size: 0.9rem; cursor: pointer; }
+.opt.correct { background: #22c55e; color: #fff; box-shadow: 0 0 10px #22c55e; }
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* 3. Infinite Scroll Reviews */
+.reviews-section { overflow: hidden; } /* Hide overflow */
+.reviews-scroller { display: none; } /* Hide old one */
+
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+}
+
+.marquee-track:hover { animation-play-state: paused; }
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Move half way (one set) */
+}
+
+/* 4. Curvy Path Line */
+.path-line { display: none; } /* Hide old straight line */
+.path-svg {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 200px;
+    z-index: 0;
+    pointer-events: none;
+}
+/* Mobile Fallback for Path */
+@media (max-width: 768px) {
+    .path-svg { display: none; }
+    .path-line { display: block; left: 20px; transform: none; } /* Restore straight line */
+}
+
+/* 5. Inventory Icons on Top */
+.inventory-card { position: relative; margin-top: 20px; text-align: center; }
+.inventory-card .item-icon {
+    position: absolute;
+    top: -30px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.1);
+    width: 60px; height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.inventory-card h4 { margin-top: 25px; } /* Push text down */
+
+/* 6. School Logos */
+.school-visual { flex-direction: column; align-items: center; }
+.school-logos {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 600;
+    font-size: 0.9rem;
+    align-items: center;
+}
+.s-logo { border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 2px; }

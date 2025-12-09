@@ -24,40 +24,44 @@
             <div class="floating-icon icon-2">🧪</div>
             <div class="floating-icon icon-3">π</div>
             <div class="floating-icon icon-4">🛡️</div>
-        </div>
+            <div class="floating-icon icon-5">🎵</div> <div class="floating-icon icon-6">✏️</div> <div class="floating-icon icon-7">🌍</div> <div class="floating-icon icon-8">🚀</div> </div>
 
         <div class="hero-content">
-            <span class="badge">🚀 v3.0 Now Live</span>
+            <span class="badge">🚀 v3.2 Now Live</span>
             <h1>Play Like a Champion. <br>Learn Like a <span class="gradient-text">Scholar.</span></h1>
             <p>The curriculum-aligned RPG where solving math defeats dragons and grammar unlocks treasure.</p>
             <div class="cta-group">
-                <button class="btn-mega">
-                    <span class="btn-icon">🎮</span> Start Adventure
-                </button>
-                <button class="btn-secondary">
-                    See Investor Deck
-                </button>
+                <button class="btn-mega"><span class="btn-icon">🎮</span> Start Adventure</button>
+                <button class="btn-secondary">See Investor Deck</button>
             </div>
             <div class="stats-row">
-                <div class="stat">
-                    <span class="number">10k+</span>
-                    <span class="label">Quests Completed</span>
-                </div>
-                <div class="stat">
-                    <span class="number">4.8★</span>
-                    <span class="label">Parent Rating</span>
-                </div>
+                <div class="stat"><span class="number">10k+ </span><span class="label">Quests Completed</span></div>
+                <div class="stat"><span class="number">4.8★ </span><span class="label">Parent Rating</span></div>
             </div>
         </div>
         
         <div class="hero-visual">
             <div class="planet planet-1"></div>
             <div class="planet planet-2"></div>
+            
             <div class="floating-card gameplay-card">
-                <div class="game-preview">
-                    <div class="gif-placeholder">
-                        <span class="play-icon">▶</span>
-                        <span class="caption">Math Battle In-Progress...</span>
+                <div class="game-scene">
+                    <div class="battle-top">
+                        <div class="health-bar"><div class="hp-fill" style="width: 80%"></div></div>
+                        <div class="vs">VS</div>
+                        <div class="health-bar enemy"><div class="hp-fill" style="width: 40%"></div></div>
+                    </div>
+                    <div class="battle-mid">
+                        <div class="char player">🧙‍♂️<span class="shadow"></span></div>
+                        <div class="char dragon">🐉<span class="shadow"></span></div>
+                    </div>
+                    <div class="battle-ui">
+                        <div class="question">12 + 24 = ?</div>
+                        <div class="options">
+                            <span class="opt">30</span>
+                            <span class="opt correct">36</span>
+                            <span class="opt">42</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -71,56 +75,52 @@
         </div>
 
         <div class="path-container">
-            <div class="path-line"></div>
+            <svg class="path-svg" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M 50 0 C 50 200, 50 200, 50 250 C 50 300, 90 350, 50 400 C 10 450, 50 500, 50 550 C 50 600, 50 600, 50 800" 
+                      stroke="rgba(255,255,255,0.1)" stroke-width="4" fill="none" stroke-dasharray="10, 10"/>
+            </svg>
 
             <div class="realm-card left reveal" onclick="toggleCard(this)">
                 <div class="card-header-view">
-                    <div class="card-icon" style="background: #f97316;">🔥</div>
-                    <div class="card-content">
+                    <div class="card-icon math-icon">🔥</div> <div class="card-content">
                         <h3>The Math Stronghold</h3>
                         <p>Solve geometry puzzles to shield your avatar.</p>
-                        <span class="tag">Critical Thinking</span>
                     </div>
-                    <div class="expand-hint">+</div>
-                    </div>
-                    <div class="syllabus-path">
-                        <div class="node"><span>01</span> Arithmetic Defense</div>
-                        <div class="node"><span>02</span> Geometry Gates</div>
-                        <div class="node"><span>03</span> Algebra Boss Fight</div>
+                </div>
+                <div class="syllabus-path">
+                    <div class="node"><span>01</span> Arithmetic Defense</div>
+                    <div class="node"><span>02</span> Geometry Gates</div>
+                    <div class="node"><span>03</span> Algebra Boss Fight</div>
                 </div>
             </div>
 
             <div class="realm-card right reveal" onclick="toggleCard(this)">
                 <div class="card-header-view">
-                    <div class="card-icon" style="background: #22c55e;">🌴</div>
+                    <div class="card-icon grammar-icon">🌴</div>
                     <div class="card-content">
                         <h3>Grammar Archipelago</h3>
                         <p>Unlock ancient chests by mastering syntax.</p>
-                        <span class="tag">Language Arts</span>
-                        </div>
-                    <div class="expand-hint">+</div>
                     </div>
-                    <div class="syllabus-path">
-                        <div class="node"><span>01</span> Noun Islands</div>
-                        <div class="node"><span>02</span> Verb Volcanoes</div>
-                        <div class="node"><span>03</span> The Syntax Ruins</div>
-                    </div>
+                </div>
+                <div class="syllabus-path">
+                     <div class="node"><span>01</span> Noun Islands</div>
+                     <div class="node"><span>02</span> Verb Volcanoes</div>
+                     <div class="node"><span>03</span> The Syntax Ruins</div>
+                </div>
             </div>
 
             <div class="realm-card left reveal" onclick="toggleCard(this)">
                 <div class="card-header-view">
-                    <div class="card-icon" style="background: #8b5cf6;">🧪</div>
+                    <div class="card-icon science-icon">🧪</div>
                     <div class="card-content">
                         <h3>The Science Lab</h3>
                         <p>Use real physics simulations to modify your world.</p>
-                        <span class="tag">STEM Physics</span>
                     </div>
-                    <div class="expand-hint">+</div>
-                    </div>
-                    <div class="syllabus-path">
-                        <div class="node"><span>01</span> Gravity Sandbox</div>
-                        <div class="node"><span>02</span> Circuit Builder</div>
-                        <div class="node"><span>03</span> Chemical Reactions</div>
+                </div>
+                <div class="syllabus-path">
+                     <div class="node"><span>01</span> Gravity Sandbox</div>
+                     <div class="node"><span>02</span> Circuit Builder</div>
+                     <div class="node"><span>03</span> Chemical Reactions</div>
                 </div>
             </div>
         </div>
@@ -171,6 +171,12 @@
                         <div class="bar" style="height: 90%"></div>
                     </div>
                     <div class="dash-label">Class Performance: <span style="color:#22c55e">+12%</span></div>
+                </div>
+                <div class="school-logos">
+                    <span>Trusted by:</span>
+                    <span class="s-logo">Ryan Int.</span>
+                    <span class="s-logo">DPS</span>
+                    <span class="s-logo">Kendriya V.</span>
                 </div>
             </div>
         </div>
@@ -258,53 +264,60 @@
             </div>
             </section>
 
-    <section class="reviews-section">
+<section class="reviews-section">
         <div class="section-header">
             <h2>Hall of Fame</h2>
             <p>Stats from our top players and their parents.</p>
         </div>
-        <div class="reviews-scroller">
-            <div class="trading-card reveal">
-                <div class="card-top">
-                    <span class="role">Parent</span>
-                    <span class="rating">★★★★★</span>
+        
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                
+                <div class="trading-card">
+                    <div class="card-top"><span class="role">Parent</span><span class="rating">★★★★★</span></div>
+                    <p class="quote">"My son thinks he's playing. I know he's learning."</p>
+                    <div class="author">- Lakshmi, Mom of 7yo</div>
                 </div>
-                <div class="card-stats">
-                    <div class="stat-row">
-                        <span>Confidence</span>
-                        <div class="bar">
-                            <div class="fill" style="width: 100%"></div>
-                        </div>
-                        </div>
-                        <div class="stat-row">
-                            <span>Math Anxiety</span>
-                        <div class="bar">
-                            <div class="fill" style="width: 10%"></div>
-                        </div>
-                        </div>
-                        </div>
-                        <p class="quote">"My son thinks he's playing a video game. I know he's mastering algebra. Win-win."</p>
-                        <div class="author">- Lakshmi, Mom of 7yo</div>
-                        </div>
+                <div class="trading-card">
+                    <div class="card-top"><span class="role">Teacher</span><span class="rating">★★★★★</span></div>
+                    <p class="quote">"Perfect for 'quiet time' in class."</p>
+                    <div class="author">- Sarah, Grade 3 Teacher</div>
+                </div>
+                <div class="trading-card">
+                    <div class="card-top"><span class="role">Student</span><span class="rating">Lv. 50</span></div>
+                    <p class="quote">"The dragon boss was hard but I beat it!"</p>
+                    <div class="author">- Arjun, Age 9</div>
+                </div>
+                <div class="trading-card">
+                    <div class="card-top"><span class="role">Parent</span><span class="rating">★★★★★</span></div>
+                    <p class="quote">"Finally, screen time I don't feel guilty about."</p>
+                    <div class="author">- Rohan, Dad of 2</div>
+                </div>
 
-            <div class="trading-card reveal">
-                <div class="card-top">
-                    <span class="role">Teacher</span>
-                    <span class="rating">★★★★★</span>
+                <div class="trading-card">
+                    <div class="card-top"><span class="role">Parent</span><span class="rating">★★★★★</span></div>
+                    <p class="quote">"My son thinks he's playing. I know he's learning."</p>
+                    <div class="author">- Lakshmi, Mom of 7yo</div>
                 </div>
-                <div class="card-stats">
-                    <div class="stat-row">
-                        <span>Engagement</span>
-                        <div class="bar">
-                            <div class="fill" style="width: 95%"></div>
-                        </div>
-                        </div>
-                        </div>
-                        <p class="quote">"I use this in my classroom for 'quiet time'. It reinforces concepts perfectly."</p>
-                        <div class="author">- Sarah, Grade 3 Teacher</div>
-                        </div>
-                        </div>
-                        </section>
+                <div class="trading-card">
+                    <div class="card-top"><span class="role">Teacher</span><span class="rating">★★★★★</span></div>
+                    <p class="quote">"Perfect for 'quiet time' in class."</p>
+                    <div class="author">- Sarah, Grade 3 Teacher</div>
+                </div>
+                <div class="trading-card">
+                    <div class="card-top"><span class="role">Student</span><span class="rating">Lv. 50</span></div>
+                    <p class="quote">"The dragon boss was hard but I beat it!"</p>
+                    <div class="author">- Arjun, Age 9</div>
+                </div>
+                <div class="trading-card">
+                    <div class="card-top"><span class="role">Parent</span><span class="rating">★★★★★</span></div>
+                    <p class="quote">"Finally, screen time I don't feel guilty about."</p>
+                    <div class="author">- Rohan, Dad of 2</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <section class="faq-section">
         <div class="section-header">
