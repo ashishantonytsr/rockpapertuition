@@ -44,4 +44,25 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("Button clicked - add 'pop' sound here");
         });
     });
+
+    // ===============================================
+    // NEW JAVASCRIPT (Append inside the existing DOMContentLoaded)
+    // ===============================================
+
+    // 4. FAQ Accordion Logic
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            // Close other open items (optional - removing this line makes multiple open allowed)
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) otherItem.classList.remove('active');
+            });
+
+            // Toggle current
+            item.classList.toggle('active');
+        });
+    });
 });
