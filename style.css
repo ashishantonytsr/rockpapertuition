@@ -1015,3 +1015,136 @@ footer {
     letter-spacing: 1px;
     margin-top: 5px;
 }
+
+/* ========================================= */
+/* VERSION 4.0: RESPONSIVE & MOBILE (Media Queries) */
+/* ========================================= */
+
+/* 1. Hamburger Menu Styles (Hidden on Desktop) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 2000; /* Above overlay */
+}
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* 2. The Big Media Query (Tablets & Phones < 768px) */
+@media (max-width: 768px) {
+
+    /* --- A. Navigation (Overlay) --- */
+    .hamburger { display: flex; }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100%; /* Full screen overlay */
+        background: rgba(15, 23, 42, 0.98); /* Dark opaque background */
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        transform: translateX(100%); /* Hidden to right */
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1500;
+    }
+    
+    .nav-links.active { transform: translateX(0); /* Slide in */ }
+    
+    .nav-links a { font-size: 1.5rem; margin-right: 0; }
+    .mobile-nav-btn { font-size: 1.2rem; padding: 15px 40px; }
+
+    /* Hamburger Animation to 'X' */
+    .hamburger.active .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+
+    /* --- B. Hero Section (Stacking) --- */
+    .hero {
+        flex-direction: column;
+        padding-top: 100px; /* More space for fixed nav */
+        text-align: center;
+        overflow: hidden; /* Prevent horizontal scroll from icons */
+    }
+    
+    .hero-content h1 { font-size: 2.5rem; } /* Smaller Title */
+    .hero-content p { padding: 0 10px; }
+    
+    .cta-group { justify-content: center; } /* Center buttons */
+    .stats-row { justify-content: center; margin-bottom: 40px; }
+    
+    .hero-visual { width: 100%; height: auto; min-height: 400px; }
+    
+    /* Make the Battle Card fit */
+    .gameplay-card { min-width: auto; width: 95%; max-width: 350px; }
+
+
+    /* --- C. Journey (Align Left) --- */
+    .journey-section { padding: 60px 5%; }
+    .path-container { padding: 0; }
+    
+    /* Revert to straight line */
+    .path-svg { display: none; }
+    .path-line { display: block; left: 15px; transform: none; } 
+    
+    /* Align cards with the new line position */
+    .realm-card {
+        width: 100%;
+        margin-left: 35px !important; /* Push right of the line */
+        margin-right: 0 !important;
+        width: calc(100% - 35px);
+    }
+    
+    /* Ensure drawer slides DOWN, not right */
+    .realm-card.left:hover .syllabus-path,
+    .realm-card.right:hover .syllabus-path {
+        right: auto; left: auto; /* Reset desktop positions */
+    }
+
+
+    /* --- D. Schools & Stats --- */
+    .school-container {
+        flex-direction: column-reverse; /* Visual on top looks better, or keep standard */
+    }
+    .school-content { text-align: center; }
+    .school-visual { width: 100%; margin-top: 30px; }
+    
+    /* Stats Grid */
+    .school-stats-row { gap: 40px; }
+    .school-stat { flex-basis: 40%; /* 2 per row */ }
+
+
+    /* --- E. Engine & Inventory --- */
+    .grid-container { grid-template-columns: 1fr; } /* Stack cards */
+    .inventory-grid { grid-template-columns: 1fr; }
+
+
+    /* --- F. Pricing & Reviews --- */
+    .pricing-container { flex-direction: column; align-items: stretch; }
+    .pricing-card { width: 100%; margin-bottom: 20px; }
+    .pricing-card.popular { transform: none; margin: 20px 0; } /* Remove scale */
+    
+    .reviews-scroller { display: none; } /* Ensure hidden */
+    /* Marquee works fine on mobile naturally */
+
+
+    /* --- G. Footer --- */
+    .footer-grid {
+        grid-template-columns: 1fr; /* Stack columns */
+        text-align: center;
+        gap: 30px;
+    }
+    .footer-col { align-items: center; }
+    .social-icons { justify-content: center; }
+}

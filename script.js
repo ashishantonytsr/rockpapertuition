@@ -141,3 +141,32 @@ document.addEventListener('DOMContentLoaded', () => {
         statsObserver.observe(statsSection);
     }
 });
+
+// ===============================================
+// VERSION 4.0 JS UPDATES (Mobile Menu)
+// ===============================================
+
+const hamburger = document.getElementById('hamburger-btn');
+const navMenu = document.getElementById('nav-menu');
+
+// Toggle Menu
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        
+        // Prevent scrolling background when menu is open
+        if (navMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
+
+// Close Menu when a link is clicked
+function closeMenu() {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}

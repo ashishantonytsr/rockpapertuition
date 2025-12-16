@@ -9,12 +9,19 @@
 </head>
 <body>
 
-    <nav class="navbar">
+<nav class="navbar">
         <div class="logo">Rock Paper <span class="highlight">Tuition</span></div>
-        <div class="nav-links">
-            <a href="#journey">The Quest</a>
-            <a href="#parents">For Parents</a>
-            <button class="btn-primary-small">Login</button>
+        
+        <div class="hamburger" id="hamburger-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <div class="nav-links" id="nav-menu">
+            <a href="#journey" onclick="closeMenu()">The Quest</a>
+            <a href="#parents" onclick="closeMenu()">For Parents</a>
+            <button class="btn-primary-small mobile-nav-btn">Login</button>
         </div>
     </nav>
 
