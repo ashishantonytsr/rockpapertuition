@@ -58,6 +58,46 @@ p { color: var(--text-gray); font-size: 1.1rem; line-height: 1.6; }
 .logo { font-weight: 700; font-size: 1.5rem; font-family: var(--font-heading); }
 .highlight { color: var(--primary); }
 
+
+/* ========================================= */
+/* LOGO STYLING (Navbar & Footer)            */
+/* ========================================= */
+
+/* Navbar Logo */
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 50px; /* Standard Nav Height */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.2s;
+}
+
+.logo-img:hover { transform: scale(1.05); }
+
+/* Footer Logo */
+.footer-logo-link {
+    display: inline-block;
+    margin-bottom: 15px; /* Space above the slogan */
+}
+
+.footer-logo-img {
+    height: 50px; /* Slightly larger in the footer */
+    width: auto;
+    /* Optional: If your logo is dark, uncomment the line below to make it white */
+    /* filter: brightness(0) invert(1); */
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .logo-img { height: 40px; }
+    .footer-logo-img { height: 45px; }
+}
+
 .nav-links a {
     color: var(--text-white);
     text-decoration: none;
@@ -1178,15 +1218,57 @@ footer {
     /* --- 6. Footer: Compact 2x2 Grid --- */
     .main-footer { padding: 40px 20px; }
     
+    /* --- Footer: 1-2-1 Layout (CSS Grid Method) --- */
     .footer-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr; /* 2 Columns */
-        gap: 30px 10px; /* Row Gap: 30px, Col Gap: 10px */
-        text-align: left;
+        /* Three rows: 
+           Row 1: 1 column (Brand)
+           Row 2: 2 columns (Links)
+           Row 3: 1 column (Socials) 
+        */
+        grid-template-columns: 1fr 1fr; /* Create 2 columns base */
+        grid-template-areas: 
+            "brand brand"   /* Brand takes both cols (Full width) */
+            "links1 links2" /* Company | Support */
+            "social social";/* Socials take both cols (Full width) */
+        gap: 30px 10px;
+        text-align: center;
+    }
+
+    /* Assign Areas */
+    .footer-col:nth-child(1) { 
+        grid-area: brand; 
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding-bottom: 20px;
     }
     
-    .footer-col h4 { font-size: 1rem; margin-bottom: 15px; }
-    .footer-col a, .footer-col p { font-size: 0.85rem; }
+    .footer-col:nth-child(2) { 
+        grid-area: links1; 
+        text-align: right; /* Align text near the center gap */
+        padding-right: 15px;
+    }
+    
+    .footer-col:nth-child(3) { 
+        grid-area: links2; 
+        text-align: left; /* Align text near the center gap */
+        padding-left: 15px;
+    }
+    
+    .footer-col:nth-child(4) { 
+        grid-area: social; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+    
+    /* Adjust headings for the side-by-side links */
+    .footer-col:nth-child(2) h4, 
+    .footer-col:nth-child(3) h4 {
+        font-size: 1rem;
+        margin-bottom: 15px;
+        color: var(--primary); /* Highlight headers */
+    }
     
     /* Social icons alignment */
     .social-icons { justify-content: flex-start; }
