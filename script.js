@@ -146,21 +146,15 @@ document.addEventListener('DOMContentLoaded', () => {
 // VERSION 4.0 JS UPDATES (Mobile Menu)
 // ===============================================
 
+// Mobile Menu Logic (Re-verified)
 const hamburger = document.getElementById('hamburger-btn');
 const navMenu = document.getElementById('nav-menu');
 
-// Toggle Menu
 if (hamburger) {
     hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
+        // Toggle the active class which triggers the CSS max-height transition
         navMenu.classList.toggle('active');
-        
-        // Prevent scrolling background when menu is open
-        if (navMenu.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'auto';
-        }
+        hamburger.classList.toggle('active');
     });
 }
 

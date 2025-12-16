@@ -1035,116 +1035,162 @@ footer {
     border-radius: 2px;
     transition: all 0.3s ease;
 }
+/* ========================================= */
+/* VERSION 4.1: REFINED MOBILE EXPERIENCE    */
+/* ========================================= */
 
-/* 2. The Big Media Query (Tablets & Phones < 768px) */
 @media (max-width: 768px) {
 
-    /* --- A. Navigation (Overlay) --- */
-    .hamburger { display: flex; }
+    /* --- 1. Navigation: Simple Dropdown (No Overlay) --- */
+    .navbar {
+        padding: 15px 20px;
+        background: rgba(15, 23, 42, 0.95); /* Opaque for readability */
+    }
+    
+    .hamburger { display: flex; color: #fff; } /* Ensure visible */
     
     .nav-links {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: 100%; /* Full screen overlay */
-        background: rgba(15, 23, 42, 0.98); /* Dark opaque background */
-        backdrop-filter: blur(10px);
+        position: absolute;
+        top: 100%; /* Push below navbar */
+        left: 0;
+        width: 100%;
+        background: #1e293b;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 40px;
-        transform: translateX(100%); /* Hidden to right */
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1500;
+        padding: 0;
+        max-height: 0; /* Hidden by default */
+        overflow: hidden;
+        transition: max-height 0.3s ease-out; /* Smooth slide down */
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+
+    .nav-links.active {
+        max-height: 300px; /* Open height */
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        width: 100%;
+        font-size: 1rem;
     }
     
-    .nav-links.active { transform: translateX(0); /* Slide in */ }
-    
-    .nav-links a { font-size: 1.5rem; margin-right: 0; }
-    .mobile-nav-btn { font-size: 1.2rem; padding: 15px 40px; }
-
-    /* Hamburger Animation to 'X' */
-    .hamburger.active .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
-    .hamburger.active .bar:nth-child(2) { opacity: 0; }
-    .hamburger.active .bar:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
-
-
-    /* --- B. Hero Section (Stacking) --- */
-    .hero {
-        flex-direction: column;
-        padding-top: 100px; /* More space for fixed nav */
+    .mobile-nav-btn {
+        margin: 15px 20px;
+        width: calc(100% - 40px); /* Full width button */
         text-align: center;
-        overflow: hidden; /* Prevent horizontal scroll from icons */
+    }
+
+
+    /* --- 2. Hero: Breathing Room --- */
+    .hero {
+        padding-top: 100px;
+        flex-direction: column;
+        gap: 40px; /* Space between Text and Visual */
+    }
+
+    .hero-content { padding: 0 20px; }
+    .hero-content h1 { font-size: 2.2rem; }
+    
+    .cta-group {
+        flex-direction: column; /* Stack buttons */
+        width: 100%;
+        margin-top: 30px; /* Visual breathing room */
+        gap: 15px;
+    }
+
+    .btn-mega, .btn-secondary {
+        width: 100%; /* Thumb-friendly full width */
+        margin-left: 0;
+        margin-bottom: 0; /* Reset previous margins */
+        justify-content: center;
     }
     
-    .hero-content h1 { font-size: 2.5rem; } /* Smaller Title */
-    .hero-content p { padding: 0 10px; }
-    
-    .cta-group { justify-content: center; } /* Center buttons */
-    .stats-row { justify-content: center; margin-bottom: 40px; }
-    
-    .hero-visual { width: 100%; height: auto; min-height: 400px; }
-    
-    /* Make the Battle Card fit */
-    .gameplay-card { min-width: auto; width: 95%; max-width: 350px; }
+    /* Center the Battle Card */
+    .hero-visual { width: 100%; display: flex; justify-content: center; }
+    .gameplay-card { width: 90%; max-width: 350px; }
 
 
-    /* --- C. Journey (Align Left) --- */
-    .journey-section { padding: 60px 5%; }
+    /* --- 3. Journey: Centered Stack (No Line) --- */
+    .journey-section { padding: 60px 20px; }
     .path-container { padding: 0; }
     
-    /* Revert to straight line */
-    .path-svg { display: none; }
-    .path-line { display: block; left: 15px; transform: none; } 
-    
-    /* Align cards with the new line position */
+    .path-line, .path-svg { display: none; } /* Hide timeline */
+
     .realm-card {
+        margin: 0 auto 30px auto !important; /* Center and add bottom space */
         width: 100%;
-        margin-left: 35px !important; /* Push right of the line */
-        margin-right: 0 !important;
-        width: calc(100% - 35px);
+        max-width: 400px;
     }
     
-    /* Ensure drawer slides DOWN, not right */
-    .realm-card.left:hover .syllabus-path,
-    .realm-card.right:hover .syllabus-path {
-        right: auto; left: auto; /* Reset desktop positions */
+    .card-content p { font-size: 0.95rem; }
+
+
+    /* --- 4. Pricing: Horizontal Snap Scroll --- */
+    .pricing-container {
+        display: flex;
+        flex-direction: row; /* Horizontal */
+        flex-wrap: nowrap; /* Don't wrap */
+        overflow-x: auto; /* Allow scroll */
+        scroll-snap-type: x mandatory; /* Snap effect */
+        padding-bottom: 30px; /* Space for scrollbar */
+        gap: 20px;
+        justify-content: flex-start; /* Start from left */
+        -webkit-overflow-scrolling: touch; /* Smooth iOS scroll */
+    }
+
+    .pricing-card {
+        flex: 0 0 85vw; /* Each card is 85% of screen width */
+        scroll-snap-align: center; /* Snap to center */
+        margin: 0;
+        transform: none !important; /* Disable hover scale */
+    }
+    
+    /* Hide scrollbar for cleaner look */
+    .pricing-container::-webkit-scrollbar { display: none; }
+
+
+    /* --- 5. Reviews: Horizontal Focus Mode --- */
+    .reviews-scroller { display: none; } /* Hide desktop marquee */
+    
+    .marquee-wrapper {
+        mask-image: none; /* Remove fade mask */
+    }
+    
+    .marquee-track {
+        animation: none; /* Stop auto-scroll */
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+    
+    .trading-card {
+        flex: 0 0 85vw; /* Focus on one card */
+        scroll-snap-align: center;
+        margin: 0 auto;
     }
 
 
-    /* --- D. Schools & Stats --- */
-    .school-container {
-        flex-direction: column-reverse; /* Visual on top looks better, or keep standard */
-    }
-    .school-content { text-align: center; }
-    .school-visual { width: 100%; margin-top: 30px; }
+    /* --- 6. Footer: Compact 2x2 Grid --- */
+    .main-footer { padding: 40px 20px; }
     
-    /* Stats Grid */
-    .school-stats-row { gap: 40px; }
-    .school-stat { flex-basis: 40%; /* 2 per row */ }
-
-
-    /* --- E. Engine & Inventory --- */
-    .grid-container { grid-template-columns: 1fr; } /* Stack cards */
-    .inventory-grid { grid-template-columns: 1fr; }
-
-
-    /* --- F. Pricing & Reviews --- */
-    .pricing-container { flex-direction: column; align-items: stretch; }
-    .pricing-card { width: 100%; margin-bottom: 20px; }
-    .pricing-card.popular { transform: none; margin: 20px 0; } /* Remove scale */
-    
-    .reviews-scroller { display: none; } /* Ensure hidden */
-    /* Marquee works fine on mobile naturally */
-
-
-    /* --- G. Footer --- */
     .footer-grid {
-        grid-template-columns: 1fr; /* Stack columns */
-        text-align: center;
-        gap: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 Columns */
+        gap: 30px 10px; /* Row Gap: 30px, Col Gap: 10px */
+        text-align: left;
     }
-    .footer-col { align-items: center; }
-    .social-icons { justify-content: center; }
+    
+    .footer-col h4 { font-size: 1rem; margin-bottom: 15px; }
+    .footer-col a, .footer-col p { font-size: 0.85rem; }
+    
+    /* Social icons alignment */
+    .social-icons { justify-content: flex-start; }
+    
+    .footer-bottom { font-size: 0.75rem; }
 }
+
