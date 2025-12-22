@@ -10,21 +10,24 @@
 <body>
 
 <nav class="navbar">
-        <a href="#" class="logo-link">
-            <img src="assets/logo.png" alt="Rock Paper Tuition Logo" class="logo-img">
-        </a>        
-        <div class="hamburger" id="hamburger-btn">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
+    <a href="#" class="logo-link">
+        <img src="assets/logo.png" alt="Logo" class="logo-img">
+    </a>       
+    
+    <div class="hamburger" id="hamburger-btn">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
 
-        <div class="nav-links" id="nav-menu">
-            <a href="#pedagogy" onclick="closeMenu()">The Science</a>
-            <a href="#schools" onclick="closeMenu()">Institutions</a>
-            <button class="btn-primary-small mobile-nav-btn" onclick="location.href='#contact'">Partner With Us</button>
-        </div>
-    </nav>
+    <div class="nav-links" id="nav-menu">
+        <a href="#pedagogy">The Science</a>
+        <a href="#schools">Institutions</a>
+        <a href="#contact" class="nav-btn-link">
+            <button class="btn-primary-small" style="margin-bottom: auto;">Partner With Us</button>
+        </a>
+    </div>
+</nav>
 
 <section class="hero">
         <div class="parallax-layer">
@@ -41,7 +44,9 @@
             
             <div class="cta-group">
                 <button class="btn-mega">
+                    <a href="https://play.google.com/store/apps/details?id=com.RextechStudios.RockPaperTuition" target="_blank" style="text-decoration: none;">
                     <span class="btn-icon">🎮</span> Get the App
+                    </a>
                 </button>
                 <button class="btn-secondary" onclick="location.href='#schools'" style="margin-left: 0;">
                     For Schools & Partners

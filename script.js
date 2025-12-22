@@ -235,3 +235,39 @@ if (form) {
             });
     });
 }
+
+/* ========================================= */
+/* MOBILE MENU LOGIC                         */
+/* ========================================= */
+
+// 1. Opens and Closes the menu
+function toggleMobileMenu() {
+    const navMenu = document.querySelector('.nav-links');
+    navMenu.classList.toggle('active');
+}
+
+// 2. Closes the menu when a link is clicked
+function closeMenu() {
+    const navMenu = document.querySelector('.nav-links');
+    
+    // Only remove the class if it exists
+    if (navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+    }
+}
+
+/* ========================================= */
+/* AUTO-CLOSE MENU ON CLICK                  */
+/* ========================================= */
+
+// 1. Select all links inside the mobile menu
+const menuLinks = document.querySelectorAll('.nav-links a');
+
+// 2. Add a click event to EACH link
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        // Remove the 'active' class to close the menu
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active'); // Resets the hamburger icon
+    });
+});
