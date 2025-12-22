@@ -1880,7 +1880,7 @@ button[type="submit"]:active {
 
     /* --- 4. Text Links (The Science, Institutions) --- */
     .nav-links a {
-        font-size: 1.3rem;       /* Large readable text */
+        font-size: 1.18rem;       /* Large readable text */
         color: #fff !important;  /* Force white */
         text-decoration: none;
         display: block;
@@ -1900,6 +1900,11 @@ button[type="submit"]:active {
         margin-right: auto !important;/* Center alignment */
         padding: 15px 0 !important;   /* Taller height */
         font-size: 1.1rem !important;
+    }
+
+    .btn-primary-small{
+        width: 80vw;
+        font-size: 1rem;
     }
 }
 
