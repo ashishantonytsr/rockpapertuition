@@ -164,3 +164,49 @@ function closeMenu() {
     navMenu.classList.remove('active');
     document.body.style.overflow = 'auto';
 }
+
+function toggleFaq(element) {
+    // 1. Get the parent .faq-item
+    const item = element.parentElement;
+    
+    // 2. Toggle the 'active' class
+    item.classList.toggle('active');
+    
+    // 3. Optional: Close others (Accordion Style)
+    // Uncomment lines below if you want only one open at a time
+    /*
+    document.querySelectorAll('.faq-item').forEach(otherItem => {
+        if (otherItem !== item) {
+            otherItem.classList.remove('active');
+        }
+    });
+    */
+}
+
+/* --- FAQ Fix Snippet --- */
+document.addEventListener('DOMContentLoaded', () => {
+    const faqButtons = document.querySelectorAll('.faq-question');
+
+    faqButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // 1. Toggle the active class on the parent item
+            const faqItem = button.parentElement;
+            faqItem.classList.toggle('active');
+        });
+    });
+});
+
+
+/* ========================================= */
+/* SMART REVIEWS (Stop if < 4)               */
+/* ========================================= */
+
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.marquee-track');
+    const cards = document.querySelectorAll('.trading-card');
+
+    if (track && cards.length < 4) {
+        // Less than 4 cards? Stop animation and center them.
+        track.classList.add('static-mode');
+    }
+});
