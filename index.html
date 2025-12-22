@@ -404,36 +404,34 @@
             </div>
 
             <div class="contact-card">
-                <form class="game-form">
-                    <div class="form-group">
-                        <label>Your Name</label>
-                        <input type="text" placeholder="Commander Shepherd" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Email Coordinates</label>
-                        <input type="email" placeholder="name@school.edu" required>
-                    </div>
+                <form class="game-form" id="contactForm" method="POST">
+    <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" name="name" placeholder="Commander Shepherd" required>
+    </div>
+    
+    <div class="form-group">
+        <label>Email Coordinates</label>
+        <input type="email" name="email" placeholder="name@school.edu" required>
+    </div>
 
-                    <div class="form-group">
-                        <label>I am representing a...</label>
-                        <select>
-                            <option>School / Institution</option>
-                            <option>EdTech Company</option>
-                            <option>Investor / VC</option>
-                            <option>Parent / Student</option>
-                        </select>
-                    </div>
+    <div class="form-group">
+        <label>I am representing a...</label>
+        <select name="role">
+            <option>School / Institution</option>
+            <option>EdTech Company</option>
+            <option>Investor / VC</option>
+            <option>Parent / Student</option>
+        </select>
+    </div>
 
-                    <div class="form-group">
-                        <label>Mission Brief (Message)</label>
-                        <textarea rows="4" placeholder="We are interested in a pilot program..."></textarea>
-                    </div>
+    <div class="form-group">
+        <label>Mission Brief (Message)</label>
+        <textarea name="message" rows="4" placeholder="Brief us..."></textarea>
+    </div>
 
-                    <button type="submit" class="btn-mega full-width">
-                        Send Transmission 🚀
-                    </button>
-                </form>
+    <button type="submit" class="btn-mega full-width">Send Transmission 🚀</button>
+</form>
             </div>
 
         </div>
@@ -491,15 +489,15 @@
             <p>Download now and get the "Starter Pack" for free.</p>
             <div class="store-buttons">
     
-    <button class="store-btn btn-apple">
+    <a href="https://apps.apple.com/us/app/your-app-id" target="_blank" class="store-btn btn-apple">
         <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Apple_logo_white.svg" alt="Apple Logo" class="store-icon">
         <span>App Store</span>
-    </button>
+    </a>
 
-    <button class="store-btn btn-google">
+    <a href="https://play.google.com/store/apps/details?id=com.RextechStudios.RockPaperTuition" target="_blank" class="store-btn btn-google">
         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg" alt="Play Store Logo" class="store-icon">
         <span>Google Play</span>
-    </button>
+    </a>
 
 </div>
         </div>

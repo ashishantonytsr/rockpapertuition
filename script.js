@@ -210,3 +210,28 @@ document.addEventListener('DOMContentLoaded', () => {
         track.classList.add('static-mode');
     }
 });
+
+const scriptURL = 'https://script.google.com/macros/s/AKfycbzbbRH5U-nuIb_GoKlrfRG1j7_fEm4sSXXKs_krJGx-vEvMJuI6zg9D3ycQUo2yn25YIA/exec'; // PASTE YOUR URL HERE
+const form = document.forms['contactForm'];
+
+if (form) {
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        
+        // Change button text to indicate loading
+        const btn = form.querySelector('button');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = "Transmitting...";
+        
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                alert("Transmission Received! We will contact you shortly.");
+                btn.innerHTML = originalText;
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                btn.innerHTML = "Error! Try again.";
+            });
+    });
+}
